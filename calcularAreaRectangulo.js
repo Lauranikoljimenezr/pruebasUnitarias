@@ -2,7 +2,7 @@
 
 
 function calcularAreaRectangulo(base, altura) {
-    if (base <= 0 || altura <= 0) {
+    if (base <= 0 || altura <= '0') {
         throw new Error("La base y la altura deben ser valores positivos");
     }
     return base * altura;
