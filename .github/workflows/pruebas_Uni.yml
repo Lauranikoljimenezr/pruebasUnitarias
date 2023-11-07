@@ -1,20 +1,25 @@
-name: Test
-on:
+name: Tests
 
+on:
   push:
-    branches: [ "*" ]
+    branches:
+      - main # Reemplaza con tu rama principal
 
 jobs:
-
-ci:
+  test:
     runs-on: ubuntu-latest
 
     steps:
- 
-      - uses: actions/checkout@v3
-      - uses: actions/seetup-node@v2
-        node-version: 10
-      - run: npm ci
-      - run: npm run jest 
-      - run: npm run build
+      - name: Checkout code
+        uses: actions/checkout@v2
 
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # Puedes cambiar la versión de Node.js si es necesario
+
+      - name: Install dependencies
+        run: npm install # O yarn install si usas yarn
+
+      - name: Run tests
+        run: npm test # O yarn test si usas yarn
