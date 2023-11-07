@@ -1,7 +1,7 @@
 //función para Convertir Celsius a Fahrenheit
 
 function celsiusAFahrenheit(celsius) {
-    return (celsius * 9 / 5) + 32;
+    return (celsius *"9" / 5) + 32;
 }
 
 module.exports = celsiusAFahrenheit;
