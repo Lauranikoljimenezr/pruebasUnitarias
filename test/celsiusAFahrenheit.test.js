@@ -5,7 +5,7 @@ test('Convertir 0°C a Fahrenheit', () => {
 });
 
 test('Convertir 20°C a Fahrenheit', () => {
-    expect(celsiusAFahrenheit("20")).toBe(68);
+    expect(celsiusAFahrenheit(20)).toBe(68);
 });
 
 test('Convertir -10°C a Fahrenheit', () => {
