@@ -1,34 +1,40 @@
-  
-name: Run test
-  
-on: 
+name: Run Tests
+
+on:
   push:
     branches:
-      'main'
-
-  pull_request:
-      branches:
-        'main'
+      
+main
 
 jobs:
-  tests:
-    runs-on: ubuntu-latest  
-    
-    steps: 
+  test:
+    runs-on: ubuntu-latest
 
-    - name: Checkout
+    steps:
+      
+name: Checkout repository
       uses: actions/checkout@v2
 
-    
-    - name: Setup Node
-      uses: actions/setup-node@v2
+      
+name: Set up Node.js
+      uses: actions/setup-node@v3
       with:
-       node-version: 21.1.0
+        node-version: 21.1.0
 
-    
-    - name: Install Dependencies
-      run: npm install
+      
+name: Install dependencies
+      run: npm ci
 
-    
-    - name: Run tests
+      
+name: Run tests
       run: npm test
+
+      
+name: Check test results
+      run: |
+        if [ $? -eq 0 ]; then
+          echo "All tests passed. Ready to push."
+        else
+          echo "Some tests failed. Aborting push."
+          exit 1
+        fi
